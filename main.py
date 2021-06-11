@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from rest_api import app
 import logging
 import logging.handlers
