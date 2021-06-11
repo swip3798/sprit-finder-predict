@@ -42,7 +42,7 @@ def run_ml_model(model_name, uuids, location):
 @app.post("/predict/<model_name>")
 def predict_model(model_name):
     origin = request.headers.get("Origin")
-    if origin != HTTP_ORIGIN and origin != None:
+    if origin != HTTP_ORIGIN and HTTP_ORIGIN != None:
         abort(403, "Access denied")
     if model_name not in AVAILABLE_MODELS:
         abort(404, "Model '{}' does not exist".format(model_name))
