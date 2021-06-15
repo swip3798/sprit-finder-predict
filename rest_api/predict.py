@@ -34,7 +34,7 @@ def run_ml_model(model_name, uuids, location):
         predictions[gas_type] = prediction
     predict_time = time.time()-starttime
     runtime = predict_time + datapulltime
-    logging.info("Hour prediction called; Model: {}; Running time: {}; Time to predict: {}; Time to pull data: {};".format(model_name, runtime, predict_time, datapulltime))
+    logging.info("Hour prediction called; Model: {}; Running time: {}; Time to predict: {}; Time to pull data: {}; IDs count: {};".format(model_name, runtime, predict_time, datapulltime, len(uuids)))
     return {
         "status": "OK",
         "model_name": model_name,
