@@ -14,7 +14,7 @@ def enable_cors():
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
-@app.route("/status")
+@app.route("/status", methods = ["GET", "OPTIONS"])
 def status():
     return {
         "status": "OK"
