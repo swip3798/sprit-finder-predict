@@ -14,4 +14,4 @@ logging.basicConfig(format='%(levelname)s [%(asctime)s]:%(message)s', level=logg
 ])
 from rest_api import app
 
-app.run(host='0.0.0.0', port=8080, server="tornado")
+#app.run(host='0.0.0.0', port=8080, server="gunicorn")
