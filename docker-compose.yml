@@ -10,3 +10,4 @@ services:
     restart: unless-stopped
     volumes: 
       - ./docker/log:/usr/src/app/log
+      - ./docker/tankdb:/usr/src/app/tankdb

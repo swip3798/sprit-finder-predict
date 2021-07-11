@@ -4,3 +4,4 @@ __pycache__
 *.png
 *.svg
 *.log
+tank.db

@@ -27,17 +27,20 @@ Welches der beiden Modelle besser ist, hängt wohl von der jeweiligen Situation 
 Das Projekt selber ist unter der MIT Lizenz verfügbar, kann also gerne selber verwendet und erweitert werden. Jedoch ist zu beachten, dass die historischen Daten von Tankerkönig unter der BY-NC-SA-4.0-Lizenz zur Verfügung gestellt werden, also nur bei nichtkommerzieller Nutzung frei sind. 
 
 ## Installation
-Dieses Projekt baut auf [TankDB](https://github.com/swip3798/TankDB) auf. Es benötigt eine Datenbank, welche die Trainingsdaten für den aktuellen Tag bereitstellt. Also muss zunächst eine TankDB aufgesetzt werden, um den Service zu betreiben.   
+Dieses Projekt baut auf [TankDB](https://github.com/swip3798/TankDB) auf. Dabei erwartet es eine sqlite Datenbank im Verzeichnis `./docker/tankdb` vorzufinden. Diese wird mit TankDB generiert und sollte tagesaktuell sein, anderfalls werden die Vorhersagewerte verfälscht. Alternativ kann auch eine MySQL Datenbank mit TankDB genutzt werden. 
 
 Zur Einrichtung des Services muss zunächst das Repository geklont werden. Anschließend muss im Hauptverzeichnis eine `.env`-Datei erstellt werden, welche folgende Werte beinhalten muss:
+```
+HTTP_ORIGIN=https://beispiel.de
+MAX_STATIONS=7
+```
+Im Falle einer MySQL Datenbank mit TankDB müssen zusätzlich folgende Werte in der `.env`-Datei enthalten sein, sonst wird immer die sqlite Datenbank verwendet:
 ```
 MYSQL_USER=user
 MYSQL_ROOT_PASSWORD=000000000
 MYSQL_PASSWORD=1111111111
 MYSQL_PORT=4444
 MYSQL_IP=127.0.0.1
-HTTP_ORIGIN=https://beispiel.de
-MAX_STATIONS=7
 ```
 Die Werte müssen natürlich dem entsprechenden Setup entsprechen. Anschließend kann der Service ganz einfach mit Docker gestartet werden. Um den Port, Log-Ordner etc. anzupassen, kann hier noch die `docker-compose.yml` Datei angepasst werden.
 
